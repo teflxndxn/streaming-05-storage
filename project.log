@@ -329,3 +329,917 @@
 2026-06-10 21:50:42 | INFO | C05 | ========================
 2026-06-10 21:50:42 | INFO | C05 | Consumer executed successfully!
 2026-06-10 21:50:42 | INFO | C05 | ========================
+2026-06-12 18:32:45 | DEBUG | blessing | No variables found in .env
+2026-06-12 18:32:45 | INFO | blessing | === RUN START ===
+2026-06-12 18:32:45 | INFO | blessing | project=C05
+2026-06-12 18:32:45 | INFO | blessing | repo_dir=streaming-05-storage
+2026-06-12 18:32:45 | INFO | blessing | python=3.14.3
+2026-06-12 18:32:45 | INFO | blessing | os=Darwin 25.5.0
+2026-06-12 18:32:45 | INFO | blessing | shell=zsh
+2026-06-12 18:32:45 | INFO | blessing | cwd=.
+2026-06-12 18:32:45 | INFO | blessing | github_actions=False
+2026-06-12 18:32:45 | INFO | blessing | ========================
+2026-06-12 18:32:45 | INFO | blessing | START consumer main()
+2026-06-12 18:32:45 | INFO | blessing | ========================
+2026-06-12 18:32:45 | INFO | blessing | ROOT_DIR = .
+2026-06-12 18:32:45 | INFO | blessing | DATA_DIR = data
+2026-06-12 18:32:45 | INFO | blessing | OUTPUT_CSV = data/output/consumed_sales.csv
+2026-06-12 18:32:45 | INFO | blessing | OUTPUT_DB = data/output/sales.duckdb
+2026-06-12 18:32:45 | INFO | blessing | REGIONS_CSV = data/regions.csv
+2026-06-12 18:32:45 | INFO | blessing | PRODUCTS_CSV = data/products.csv
+2026-06-12 18:32:45 | INFO | blessing | CURRENCIES_CSV = data/currencies.csv
+2026-06-12 18:32:45 | INFO | blessing | DISCOUNT_CODES_CSV = data/discount_codes.csv
+2026-06-12 18:32:45 | INFO | blessing | ========================
+2026-06-12 18:32:45 | INFO | blessing | SECTION A. Acquire
+2026-06-12 18:32:45 | INFO | blessing | ========================
+2026-06-12 18:32:45 | INFO | blessing | Loading settings from .env...
+2026-06-12 18:32:45 | INFO | blessing | KAFKA_BOOTSTRAP_SERVERS  = localhost:9092
+2026-06-12 18:32:45 | INFO | blessing | KAFKA_TOPIC              = product-sales-case
+2026-06-12 18:32:45 | INFO | blessing | KAFKA_GROUP_ID           = streaming-consumer-group-A
+2026-06-12 18:32:45 | INFO | blessing | CONSUMER_TIMEOUT_SECONDS = 10.0
+2026-06-12 18:32:45 | INFO | blessing | CONSUMER_MAX_MESSAGES    = 1000
+2026-06-12 18:32:45 | INFO | blessing | Verifying Kafka connection...
+2026-06-12 18:32:45 | INFO | blessing | Kafka port is reachable.
+2026-06-12 18:32:45 | INFO | blessing | Verifying Kafka topic...
+2026-06-12 18:32:45 | INFO | blessing | Topic 'product-sales-case' exists.
+2026-06-12 18:32:45 | INFO | blessing | Found 6 message(s) available.
+2026-06-12 18:32:45 | INFO | blessing | Creating Kafka consumer...
+2026-06-12 18:32:45 | INFO | blessing | Subscribed to topic: 'product-sales-case' (reading from beginning)
+2026-06-12 18:32:45 | INFO | blessing | ========================
+2026-06-12 18:32:45 | INFO | blessing | SECTION C. Consume and Process Messages
+2026-06-12 18:32:45 | INFO | blessing | ========================
+2026-06-12 18:32:45 | INFO | blessing | Initializing output...
+2026-06-12 18:32:45 | INFO | blessing | Output CSV cleared: consumed_sales.csv
+2026-06-12 18:32:45 | INFO | blessing | Database initialized: sales.duckdb
+2026-06-12 18:32:45 | INFO | blessing | Loading enrichment reference data...
+2026-06-12 18:32:45 | INFO | blessing | Found 6 region tax rates.
+2026-06-12 18:32:45 | INFO | blessing | Consuming messages...
+2026-06-12 18:32:45 | INFO | blessing | Waiting for up to 1000 message(s).
+2026-06-12 18:32:45 | INFO | blessing | Press CTRL+C to stop early.
+
+2026-06-12 18:32:48 | INFO | blessing | {'currency_code': 'USD', 'customer_id': 'CUST-4150', 'customer_note': 'Gift for my team', 'datetime': '2026-05-04T08:11:00Z', 'device_type': 'tablet', 'discount_code': '', 'is_new_customer': 'false', 'is_online': 'true', 'order_id': 'e7324981-a9f0-419f-b708-d0a333451fff', 'payment_method': 'paypal', 'product_id': 'PY-STREAM-005', 'quantity': '3', 'referral_source': 'paid_search', 'region_id': 'US-TX', 'unit_price': '59.99', '_kafka_key': 'US-TX', '_kafka_partition': 0, '_kafka_offset': 0}
+2026-06-12 18:32:48 | INFO | blessing | subtotal=179.97
+2026-06-12 18:32:48 | INFO | blessing | tax=14.85
+2026-06-12 18:32:48 | INFO | blessing | total=194.82
+2026-06-12 18:32:48 | INFO | blessing | running_total=194.82
+2026-06-12 18:32:48 | INFO | blessing | Wrote valid record to DuckDB:
+2026-06-12 18:32:48 | INFO | blessing |   order=e7324981-a9f0-419f-b708-d0a333451fff
+2026-06-12 18:32:48 | INFO | blessing | MESSAGE ACCEPTED
+2026-06-12 18:32:48 | INFO | blessing | order=e7324981-a9f0-419f-b708-d0a333451fff
+2026-06-12 18:32:48 | INFO | blessing | total=$194.82
+2026-06-12 18:32:48 | INFO | blessing | consumed=1
+2026-06-12 18:32:48 | INFO | blessing | RUNNING STATS
+2026-06-12 18:32:48 | INFO | blessing | total_sales=$194.82
+2026-06-12 18:32:48 | INFO | blessing | average=$194.82
+2026-06-12 18:32:48 | INFO | blessing | min=$194.82
+2026-06-12 18:32:48 | INFO | blessing | max=$194.82
+2026-06-12 18:32:48 | INFO | blessing | quantity=3
+2026-06-12 18:32:48 | INFO | blessing | {'currency_code': 'USD', 'customer_id': 'CUST-1106', 'customer_note': 'Gift for my team', 'datetime': '2026-05-04T08:23:00Z', 'device_type': 'mobile', 'discount_code': '', 'is_new_customer': 'false', 'is_online': 'true', 'order_id': 'd61943e0-f543-4b5f-9c9a-18605ea4cfe5', 'payment_method': 'paypal', 'product_id': 'PY-DATA-002', 'quantity': '1', 'referral_source': 'paid_search', 'region_id': 'US-TX', 'unit_price': '49.99', '_kafka_key': 'US-TX', '_kafka_partition': 0, '_kafka_offset': 1}
+2026-06-12 18:32:48 | INFO | blessing | subtotal=49.99
+2026-06-12 18:32:48 | INFO | blessing | tax=4.12
+2026-06-12 18:32:48 | INFO | blessing | total=54.11
+2026-06-12 18:32:48 | INFO | blessing | running_total=248.93
+2026-06-12 18:32:48 | INFO | blessing | Wrote valid record to DuckDB:
+2026-06-12 18:32:48 | INFO | blessing |   order=d61943e0-f543-4b5f-9c9a-18605ea4cfe5
+2026-06-12 18:32:48 | INFO | blessing | MESSAGE ACCEPTED
+2026-06-12 18:32:48 | INFO | blessing | order=d61943e0-f543-4b5f-9c9a-18605ea4cfe5
+2026-06-12 18:32:48 | INFO | blessing | total=$54.11
+2026-06-12 18:32:48 | INFO | blessing | consumed=2
+2026-06-12 18:32:48 | INFO | blessing | RUNNING STATS
+2026-06-12 18:32:48 | INFO | blessing | total_sales=$248.93
+2026-06-12 18:32:48 | INFO | blessing | average=$124.47
+2026-06-12 18:32:48 | INFO | blessing | min=$54.11
+2026-06-12 18:32:48 | INFO | blessing | max=$194.82
+2026-06-12 18:32:48 | INFO | blessing | quantity=1
+2026-06-12 18:32:48 | INFO | blessing | {'currency_code': 'CAD', 'customer_id': 'CUST-2133', 'customer_note': 'Learning at my own pace', 'datetime': '2026-05-04T08:28:00Z', 'device_type': 'desktop', 'discount_code': '', 'is_new_customer': 'false', 'is_online': 'true', 'order_id': '14da1915-8e74-47be-9e10-f7275d31af46', 'payment_method': 'paypal', 'product_id': 'PY-NLP-006', 'quantity': '1', 'referral_source': 'organic', 'region_id': 'CA-QC', 'unit_price': '54.99', '_kafka_key': 'CA-QC', '_kafka_partition': 0, '_kafka_offset': 2}
+2026-06-12 18:32:48 | INFO | blessing | subtotal=54.99
+2026-06-12 18:32:48 | INFO | blessing | tax=8.23
+2026-06-12 18:32:48 | INFO | blessing | total=63.22
+2026-06-12 18:32:48 | INFO | blessing | running_total=312.15
+2026-06-12 18:32:48 | INFO | blessing | Wrote valid record to DuckDB:
+2026-06-12 18:32:48 | INFO | blessing |   order=14da1915-8e74-47be-9e10-f7275d31af46
+2026-06-12 18:32:48 | INFO | blessing | MESSAGE ACCEPTED
+2026-06-12 18:32:48 | INFO | blessing | order=14da1915-8e74-47be-9e10-f7275d31af46
+2026-06-12 18:32:48 | INFO | blessing | total=$63.22
+2026-06-12 18:32:48 | INFO | blessing | consumed=3
+2026-06-12 18:32:48 | INFO | blessing | RUNNING STATS
+2026-06-12 18:32:48 | INFO | blessing | total_sales=$312.15
+2026-06-12 18:32:48 | INFO | blessing | average=$104.05
+2026-06-12 18:32:48 | INFO | blessing | min=$54.11
+2026-06-12 18:32:48 | INFO | blessing | max=$194.82
+2026-06-12 18:32:48 | INFO | blessing | quantity=1
+2026-06-12 18:32:48 | INFO | blessing | {'currency_code': 'USD', 'customer_id': 'CUST-5333', 'customer_note': 'Highly recommend', 'datetime': '2026-05-04T08:40:00Z', 'device_type': 'mobile', 'discount_code': '', 'is_new_customer': 'false', 'is_online': 'true', 'order_id': 'd77ed935-9b28-431d-bc25-0a3fd98f4154', 'payment_method': 'paypal', 'product_id': 'PY-STREAM-005', 'quantity': '1', 'referral_source': 'organic', 'region_id': 'US-CA', 'unit_price': '59.99', '_kafka_key': 'US-CA', '_kafka_partition': 0, '_kafka_offset': 3}
+2026-06-12 18:32:48 | INFO | blessing | subtotal=59.99
+2026-06-12 18:32:48 | INFO | blessing | tax=5.7
+2026-06-12 18:32:48 | INFO | blessing | total=65.69
+2026-06-12 18:32:48 | INFO | blessing | running_total=377.84
+2026-06-12 18:32:48 | INFO | blessing | Wrote valid record to DuckDB:
+2026-06-12 18:32:48 | INFO | blessing |   order=d77ed935-9b28-431d-bc25-0a3fd98f4154
+2026-06-12 18:32:48 | INFO | blessing | MESSAGE ACCEPTED
+2026-06-12 18:32:48 | INFO | blessing | order=d77ed935-9b28-431d-bc25-0a3fd98f4154
+2026-06-12 18:32:48 | INFO | blessing | total=$65.69
+2026-06-12 18:32:48 | INFO | blessing | consumed=4
+2026-06-12 18:32:48 | INFO | blessing | RUNNING STATS
+2026-06-12 18:32:48 | INFO | blessing | total_sales=$377.84
+2026-06-12 18:32:48 | INFO | blessing | average=$94.46
+2026-06-12 18:32:48 | INFO | blessing | min=$54.11
+2026-06-12 18:32:48 | INFO | blessing | max=$194.82
+2026-06-12 18:32:48 | INFO | blessing | quantity=1
+2026-06-12 18:32:48 | INFO | blessing | {'currency_code': 'USD', 'customer_id': 'CUST-8573', 'customer_note': 'Learning at my own pace', 'datetime': '2026-05-04T08:41:00Z', 'device_type': 'mobile', 'discount_code': '', 'is_new_customer': 'false', 'is_online': 'true', 'order_id': '24b91995-25f8-4ad7-8fa6-2e4c15750e5e', 'payment_method': 'apple_pay', 'product_id': 'PY-VIZ-003', 'quantity': '1', 'referral_source': 'paid_search', 'region_id': 'US-MO', 'unit_price': '39.99', '_kafka_key': 'US-MO', '_kafka_partition': 0, '_kafka_offset': 4}
+2026-06-12 18:32:48 | INFO | blessing | subtotal=39.99
+2026-06-12 18:32:48 | INFO | blessing | tax=3.2
+2026-06-12 18:32:48 | INFO | blessing | total=43.19
+2026-06-12 18:32:48 | INFO | blessing | running_total=421.03
+2026-06-12 18:32:48 | INFO | blessing | Wrote valid record to DuckDB:
+2026-06-12 18:32:48 | INFO | blessing |   order=24b91995-25f8-4ad7-8fa6-2e4c15750e5e
+2026-06-12 18:32:48 | INFO | blessing | MESSAGE ACCEPTED
+2026-06-12 18:32:48 | INFO | blessing | order=24b91995-25f8-4ad7-8fa6-2e4c15750e5e
+2026-06-12 18:32:48 | INFO | blessing | total=$43.19
+2026-06-12 18:32:48 | INFO | blessing | consumed=5
+2026-06-12 18:32:48 | INFO | blessing | RUNNING STATS
+2026-06-12 18:32:48 | INFO | blessing | total_sales=$421.03
+2026-06-12 18:32:48 | INFO | blessing | average=$84.21
+2026-06-12 18:32:48 | INFO | blessing | min=$43.19
+2026-06-12 18:32:48 | INFO | blessing | max=$194.82
+2026-06-12 18:32:48 | INFO | blessing | quantity=1
+2026-06-12 18:32:48 | INFO | blessing | {'currency_code': 'CAD', 'customer_id': 'CUST-8062', 'customer_note': '', 'datetime': '2026-05-04T08:54:00Z', 'device_type': 'tablet', 'discount_code': '', 'is_new_customer': 'false', 'is_online': 'true', 'order_id': '1ec0fc8b-998c-4f43-8a66-19e1fa7d5fa8', 'payment_method': 'paypal', 'product_id': 'PY-SQL-004', 'quantity': '1', 'referral_source': 'organic', 'region_id': 'CA-ON', 'unit_price': '44.99', '_kafka_key': 'CA-ON', '_kafka_partition': 0, '_kafka_offset': 5}
+2026-06-12 18:32:48 | INFO | blessing | subtotal=44.99
+2026-06-12 18:32:48 | INFO | blessing | tax=5.85
+2026-06-12 18:32:48 | INFO | blessing | total=50.84
+2026-06-12 18:32:48 | INFO | blessing | running_total=471.87
+2026-06-12 18:32:48 | INFO | blessing | Wrote valid record to DuckDB:
+2026-06-12 18:32:48 | INFO | blessing |   order=1ec0fc8b-998c-4f43-8a66-19e1fa7d5fa8
+2026-06-12 18:32:48 | INFO | blessing | MESSAGE ACCEPTED
+2026-06-12 18:32:48 | INFO | blessing | order=1ec0fc8b-998c-4f43-8a66-19e1fa7d5fa8
+2026-06-12 18:32:48 | INFO | blessing | total=$50.84
+2026-06-12 18:32:48 | INFO | blessing | consumed=6
+2026-06-12 18:32:48 | INFO | blessing | RUNNING STATS
+2026-06-12 18:32:48 | INFO | blessing | total_sales=$471.87
+2026-06-12 18:32:48 | INFO | blessing | average=$78.64
+2026-06-12 18:32:48 | INFO | blessing | min=$43.19
+2026-06-12 18:32:48 | INFO | blessing | max=$194.82
+2026-06-12 18:32:48 | INFO | blessing | quantity=1
+2026-06-12 18:32:59 | INFO | blessing | No message received within 10.0s timeout.
+2026-06-12 18:32:59 | INFO | blessing | Producer finished or paused. Stopping consumer.
+2026-06-12 18:32:59 | INFO | blessing | Kafka consumer closed.
+2026-06-12 18:32:59 | INFO | blessing | Saving artifacts...
+2026-06-12 18:32:59 | INFO | blessing | WROTE OUTPUT_CSV = data/output/consumed_sales.csv
+2026-06-12 18:32:59 | INFO | blessing | WROTE OUTPUT_DB = data/output/sales.duckdb
+2026-06-12 18:32:59 | INFO | blessing | ========================
+2026-06-12 18:32:59 | INFO | blessing | SECTION E. Exit
+2026-06-12 18:32:59 | INFO | blessing | ========================
+2026-06-12 18:32:59 | INFO | blessing | Summary:
+2026-06-12 18:32:59 | INFO | blessing | Consumed 6 message(s) from topic 'product-sales-case'.
+2026-06-12 18:32:59 | INFO | blessing | Skipped  0 message(s).
+2026-06-12 18:32:59 | INFO | blessing | OUTPUT_CSV = data/output/consumed_sales.csv
+2026-06-12 18:32:59 | INFO | blessing |   Total sales:  $471.87
+2026-06-12 18:32:59 | INFO | blessing |   Average sale: $78.64
+2026-06-12 18:32:59 | INFO | blessing |   Minimum sale: $43.19
+2026-06-12 18:32:59 | INFO | blessing |   Maximum sale: $194.82
+2026-06-12 18:32:59 | INFO | blessing | ========================
+2026-06-12 18:32:59 | INFO | blessing | Consumer executed successfully!
+2026-06-12 18:32:59 | INFO | blessing | ========================
+2026-06-12 18:39:30 | DEBUG | blessing-producer | No variables found in .env
+2026-06-12 18:39:30 | INFO | blessing-producer | === RUN START ===
+2026-06-12 18:39:30 | INFO | blessing-producer | project=P03
+2026-06-12 18:39:30 | INFO | blessing-producer | repo_dir=streaming-05-storage
+2026-06-12 18:39:30 | INFO | blessing-producer | python=3.14.3
+2026-06-12 18:39:30 | INFO | blessing-producer | os=Darwin 25.5.0
+2026-06-12 18:39:30 | INFO | blessing-producer | shell=zsh
+2026-06-12 18:39:30 | INFO | blessing-producer | cwd=.
+2026-06-12 18:39:30 | INFO | blessing-producer | github_actions=False
+2026-06-12 18:39:30 | INFO | blessing-producer | ========================
+2026-06-12 18:39:30 | INFO | blessing-producer | START producer main()
+2026-06-12 18:39:30 | INFO | blessing-producer | ========================
+2026-06-12 18:39:30 | INFO | blessing-producer | ROOT_DIR = .
+2026-06-12 18:39:30 | INFO | blessing-producer | DATA_DIR = data
+2026-06-12 18:39:30 | INFO | blessing-producer | SALES_CSV = data/sales.csv
+2026-06-12 18:39:30 | INFO | blessing-producer | REGIONS_CSV = data/regions.csv
+2026-06-12 18:39:30 | INFO | blessing-producer | PRODUCTS_CSV = data/products.csv
+2026-06-12 18:39:30 | INFO | blessing-producer | REJECTED_SALES_CSV = data/output/producer_rejected_sales.csv
+2026-06-12 18:39:30 | INFO | blessing-producer | ========================
+2026-06-12 18:39:30 | INFO | blessing-producer | SECTION A. Acquire
+2026-06-12 18:39:30 | INFO | blessing-producer | ========================
+2026-06-12 18:39:30 | INFO | blessing-producer | Loading settings from .env...
+2026-06-12 18:39:30 | INFO | blessing-producer | KAFKA_BOOTSTRAP_SERVERS           = localhost:9092
+2026-06-12 18:39:30 | INFO | blessing-producer | KAFKA_TOPIC                       = product-sales-case
+2026-06-12 18:39:30 | INFO | blessing-producer | PRODUCER_MESSAGE_COUNT            = 6
+2026-06-12 18:39:30 | INFO | blessing-producer | PRODUCER_MESSAGE_INTERVAL_SECONDS = 2.0
+2026-06-12 18:39:30 | INFO | blessing-producer | KAFKA_CLEAR_TOPIC_ON_START        = False
+2026-06-12 18:39:30 | INFO | blessing-producer | Verifying Kafka connection...
+2026-06-12 18:39:30 | INFO | blessing-producer | Kafka port is reachable.
+2026-06-12 18:39:30 | INFO | blessing-producer | Loading validation reference data...
+2026-06-12 18:39:30 | INFO | blessing-producer | Found 6 valid regions, 6 valid products.
+2026-06-12 18:39:30 | INFO | blessing-producer | ========================
+2026-06-12 18:39:30 | INFO | blessing-producer | SECTION P. Produce Messages
+2026-06-12 18:39:30 | INFO | blessing-producer | ========================
+2026-06-12 18:39:30 | INFO | blessing-producer | Initializing output...
+2026-06-12 18:39:30 | INFO | blessing-producer | Output directory ready: output
+2026-06-12 18:39:30 | INFO | blessing-producer | Sending messages...
+2026-06-12 18:39:30 | INFO | blessing-producer | Sending up to 6 message(s) to topic 'product-sales-case'.
+2026-06-12 18:39:30 | INFO | blessing-producer | Watch each sale arrive. Press CTRL+C to stop early.
+
+2026-06-12 18:39:30 | INFO | blessing-producer | {
+  order_id: e7324981-a9f0-419f-b708-d0a333451fff
+  datetime: 2026-05-04T08:11:00Z
+  region_id: US-TX
+  currency_code: USD
+  product_id: PY-STREAM-005
+  unit_price: 59.99
+  quantity: 3
+  is_online: true
+  customer_id: CUST-4150
+  is_new_customer: false
+  device_type: tablet
+  payment_method: paypal
+  referral_source: paid_search
+  discount_code: 
+  customer_note: Gift for my team
+}
+2026-06-12 18:39:30 | INFO | blessing-producer |   Sending message with key=US-TX
+2026-06-12 18:39:30 | INFO | blessing-producer |   Quantity=3
+2026-06-12 18:39:30 | INFO | blessing-producer |   MESSAGE SENT  sent=1
+2026-06-12 18:39:32 | INFO | blessing-producer | {
+  order_id: d61943e0-f543-4b5f-9c9a-18605ea4cfe5
+  datetime: 2026-05-04T08:23:00Z
+  region_id: US-TX
+  currency_code: USD
+  product_id: PY-DATA-002
+  unit_price: 49.99
+  quantity: 1
+  is_online: true
+  customer_id: CUST-1106
+  is_new_customer: false
+  device_type: mobile
+  payment_method: paypal
+  referral_source: paid_search
+  discount_code: 
+  customer_note: Gift for my team
+}
+2026-06-12 18:39:32 | INFO | blessing-producer |   Sending message with key=US-TX
+2026-06-12 18:39:32 | INFO | blessing-producer |   Quantity=1
+2026-06-12 18:39:32 | INFO | blessing-producer |   MESSAGE SENT  sent=2
+2026-06-12 18:39:34 | INFO | blessing-producer | {
+  order_id: 14da1915-8e74-47be-9e10-f7275d31af46
+  datetime: 2026-05-04T08:28:00Z
+  region_id: CA-QC
+  currency_code: CAD
+  product_id: PY-NLP-006
+  unit_price: 54.99
+  quantity: 1
+  is_online: true
+  customer_id: CUST-2133
+  is_new_customer: false
+  device_type: desktop
+  payment_method: paypal
+  referral_source: organic
+  discount_code: 
+  customer_note: Learning at my own pace
+}
+2026-06-12 18:39:34 | INFO | blessing-producer |   Sending message with key=CA-QC
+2026-06-12 18:39:34 | INFO | blessing-producer |   Quantity=1
+2026-06-12 18:39:34 | INFO | blessing-producer |   MESSAGE SENT  sent=3
+2026-06-12 18:39:36 | INFO | blessing-producer | {
+  order_id: d77ed935-9b28-431d-bc25-0a3fd98f4154
+  datetime: 2026-05-04T08:40:00Z
+  region_id: US-CA
+  currency_code: USD
+  product_id: PY-STREAM-005
+  unit_price: 59.99
+  quantity: 1
+  is_online: true
+  customer_id: CUST-5333
+  is_new_customer: false
+  device_type: mobile
+  payment_method: paypal
+  referral_source: organic
+  discount_code: 
+  customer_note: Highly recommend
+}
+2026-06-12 18:39:36 | INFO | blessing-producer |   Sending message with key=US-CA
+2026-06-12 18:39:36 | INFO | blessing-producer |   Quantity=1
+2026-06-12 18:39:36 | INFO | blessing-producer |   MESSAGE SENT  sent=4
+2026-06-12 18:39:38 | INFO | blessing-producer | {
+  order_id: 24b91995-25f8-4ad7-8fa6-2e4c15750e5e
+  datetime: 2026-05-04T08:41:00Z
+  region_id: US-MO
+  currency_code: USD
+  product_id: PY-VIZ-003
+  unit_price: 39.99
+  quantity: 1
+  is_online: true
+  customer_id: CUST-8573
+  is_new_customer: false
+  device_type: mobile
+  payment_method: apple_pay
+  referral_source: paid_search
+  discount_code: 
+  customer_note: Learning at my own pace
+}
+2026-06-12 18:39:38 | INFO | blessing-producer |   Sending message with key=US-MO
+2026-06-12 18:39:38 | INFO | blessing-producer |   Quantity=1
+2026-06-12 18:39:38 | INFO | blessing-producer |   MESSAGE SENT  sent=5
+2026-06-12 18:39:40 | INFO | blessing-producer | {
+  order_id: 1ec0fc8b-998c-4f43-8a66-19e1fa7d5fa8
+  datetime: 2026-05-04T08:54:00Z
+  region_id: CA-ON
+  currency_code: CAD
+  product_id: PY-SQL-004
+  unit_price: 44.99
+  quantity: 1
+  is_online: true
+  customer_id: CUST-8062
+  is_new_customer: false
+  device_type: tablet
+  payment_method: paypal
+  referral_source: organic
+  discount_code: 
+  customer_note: 
+}
+2026-06-12 18:39:40 | INFO | blessing-producer |   Sending message with key=CA-ON
+2026-06-12 18:39:40 | INFO | blessing-producer |   Quantity=1
+2026-06-12 18:39:40 | INFO | blessing-producer |   MESSAGE SENT  sent=6
+2026-06-12 18:39:42 | INFO | blessing-producer | Checking for rejected records...
+2026-06-12 18:39:42 | INFO | blessing-producer |   No records rejected.
+2026-06-12 18:39:42 | INFO | blessing-producer | ========================
+2026-06-12 18:39:42 | INFO | blessing-producer | SECTION E. Exit
+2026-06-12 18:39:42 | INFO | blessing-producer | ========================
+2026-06-12 18:39:42 | INFO | blessing-producer | Summary:
+2026-06-12 18:39:42 | INFO | blessing-producer | Sent 6 message(s) to topic 'product-sales-case'.
+2026-06-12 18:39:42 | INFO | blessing-producer | Rejected 0 message(s).
+2026-06-12 18:39:42 | INFO | blessing-producer | ========================
+2026-06-12 18:39:42 | INFO | blessing-producer | Producer executed successfully!
+2026-06-12 18:39:42 | INFO | blessing-producer | ========================
+2026-06-12 18:43:50 | INFO | blessing-admin | === RUN START ===
+2026-06-12 18:43:50 | INFO | blessing-admin | project=A02
+2026-06-12 18:43:50 | INFO | blessing-admin | repo_dir=streaming-05-storage
+2026-06-12 18:43:50 | INFO | blessing-admin | python=3.14.3
+2026-06-12 18:43:50 | INFO | blessing-admin | os=Darwin 25.5.0
+2026-06-12 18:43:50 | INFO | blessing-admin | shell=zsh
+2026-06-12 18:43:50 | INFO | blessing-admin | cwd=.
+2026-06-12 18:43:50 | INFO | blessing-admin | github_actions=False
+2026-06-12 18:43:50 | INFO | blessing-admin | ========================
+2026-06-12 18:43:50 | INFO | blessing-admin | START admin main()
+2026-06-12 18:43:50 | INFO | blessing-admin | Custom admin created by Blessing
+2026-06-12 18:43:50 | INFO | blessing-admin | ========================
+2026-06-12 18:43:50 | INFO | blessing-admin | KAFKA_BOOTSTRAP_SERVERS = localhost:9092
+2026-06-12 18:43:50 | INFO | blessing-admin | KAFKA_TOPIC             = product-sales-case
+2026-06-12 18:43:50 | INFO | blessing-admin | KAFKA_GROUP_ID          = streaming-consumer-group-A
+2026-06-12 18:43:50 | INFO | blessing-admin | KAFKA_AUTO_OFFSET_RESET = earliest
+2026-06-12 18:43:50 | INFO | blessing-admin | MESSAGE_INTERVAL_SECONDS = 1.0
+2026-06-12 18:43:50 | INFO | blessing-admin | MESSAGE_COUNT           = 6
+2026-06-12 18:43:50 | INFO | blessing-admin | Verifying Kafka connection...
+2026-06-12 18:43:50 | INFO | blessing-admin | Kafka port is reachable.
+2026-06-12 18:43:50 | INFO | blessing-admin | Topics currently in Kafka: ['__consumer_offsets', 'product-sales-case', 'streaming-05-storage-case']
+2026-06-12 18:43:50 | INFO | blessing-admin | Topic 'product-sales-case' already exists. No action needed.
+2026-06-12 18:43:50 | INFO | blessing-admin | To start fresh, run:  uv run python -m streaming.admin --recreate
+2026-06-12 18:43:50 | INFO | blessing-admin | Topics currently in Kafka: ['__consumer_offsets', 'product-sales-case', 'streaming-05-storage-case']
+2026-06-12 18:43:50 | INFO | blessing-admin | ========================
+2026-06-12 18:43:50 | INFO | blessing-admin | Admin executed successfully!
+2026-06-12 18:43:50 | INFO | blessing-admin | ========================
+2026-06-12 19:23:35 | DEBUG | blessing | No variables found in .env
+2026-06-12 19:23:35 | INFO | blessing | === RUN START ===
+2026-06-12 19:23:35 | INFO | blessing | project=C05
+2026-06-12 19:23:35 | INFO | blessing | repo_dir=streaming-05-storage
+2026-06-12 19:23:35 | INFO | blessing | python=3.14.3
+2026-06-12 19:23:35 | INFO | blessing | os=Darwin 25.5.0
+2026-06-12 19:23:35 | INFO | blessing | shell=zsh
+2026-06-12 19:23:35 | INFO | blessing | cwd=.
+2026-06-12 19:23:35 | INFO | blessing | github_actions=False
+2026-06-12 19:23:35 | INFO | blessing | ========================
+2026-06-12 19:23:35 | INFO | blessing | START consumer main()
+2026-06-12 19:23:35 | INFO | blessing | ========================
+2026-06-12 19:23:35 | INFO | blessing | ROOT_DIR = .
+2026-06-12 19:23:35 | INFO | blessing | DATA_DIR = data
+2026-06-12 19:23:35 | INFO | blessing | OUTPUT_CSV = data/output/consumed_sales.csv
+2026-06-12 19:23:35 | INFO | blessing | OUTPUT_DB = data/output/sales.duckdb
+2026-06-12 19:23:35 | INFO | blessing | REGIONS_CSV = data/regions.csv
+2026-06-12 19:23:35 | INFO | blessing | PRODUCTS_CSV = data/products.csv
+2026-06-12 19:23:35 | INFO | blessing | CURRENCIES_CSV = data/currencies.csv
+2026-06-12 19:23:35 | INFO | blessing | DISCOUNT_CODES_CSV = data/discount_codes.csv
+2026-06-12 19:23:35 | INFO | blessing | ========================
+2026-06-12 19:23:35 | INFO | blessing | SECTION A. Acquire
+2026-06-12 19:23:35 | INFO | blessing | ========================
+2026-06-12 19:23:35 | INFO | blessing | Loading settings from .env...
+2026-06-12 19:23:35 | INFO | blessing | KAFKA_BOOTSTRAP_SERVERS  = localhost:9092
+2026-06-12 19:23:35 | INFO | blessing | KAFKA_TOPIC              = product-sales-case
+2026-06-12 19:23:35 | INFO | blessing | KAFKA_GROUP_ID           = streaming-consumer-group-A
+2026-06-12 19:23:35 | INFO | blessing | CONSUMER_TIMEOUT_SECONDS = 10.0
+2026-06-12 19:23:35 | INFO | blessing | CONSUMER_MAX_MESSAGES    = 1000
+2026-06-12 19:23:35 | INFO | blessing | Verifying Kafka connection...
+2026-06-12 19:23:35 | INFO | blessing | Kafka port is reachable.
+2026-06-12 19:23:35 | INFO | blessing | Verifying Kafka topic...
+2026-06-12 19:23:35 | INFO | blessing | Topic 'product-sales-case' exists.
+2026-06-12 19:23:35 | INFO | blessing | Found 12 message(s) available.
+2026-06-12 19:23:35 | INFO | blessing | Creating Kafka consumer...
+2026-06-12 19:23:35 | INFO | blessing | Subscribed to topic: 'product-sales-case' (reading from beginning)
+2026-06-12 19:23:35 | INFO | blessing | ========================
+2026-06-12 19:23:35 | INFO | blessing | SECTION C. Consume and Process Messages
+2026-06-12 19:23:35 | INFO | blessing | ========================
+2026-06-12 19:23:35 | INFO | blessing | Initializing output...
+2026-06-12 19:23:35 | INFO | blessing | Output CSV cleared: consumed_sales.csv
+2026-06-12 19:23:35 | INFO | blessing | Database initialized: sales.duckdb
+2026-06-12 19:23:35 | INFO | blessing | Loading enrichment reference data...
+2026-06-12 19:23:35 | INFO | blessing | Found 6 region tax rates.
+2026-06-12 19:23:35 | INFO | blessing | Consuming messages...
+2026-06-12 19:23:35 | INFO | blessing | Waiting for up to 1000 message(s).
+2026-06-12 19:23:35 | INFO | blessing | Press CTRL+C to stop early.
+
+2026-06-12 19:23:38 | INFO | blessing | {'currency_code': 'USD', 'customer_id': 'CUST-4150', 'customer_note': 'Gift for my team', 'datetime': '2026-05-04T08:11:00Z', 'device_type': 'tablet', 'discount_code': '', 'is_new_customer': 'false', 'is_online': 'true', 'order_id': 'e7324981-a9f0-419f-b708-d0a333451fff', 'payment_method': 'paypal', 'product_id': 'PY-STREAM-005', 'quantity': '3', 'referral_source': 'paid_search', 'region_id': 'US-TX', 'unit_price': '59.99', '_kafka_key': 'US-TX', '_kafka_partition': 0, '_kafka_offset': 0}
+2026-06-12 19:23:38 | INFO | blessing | subtotal=179.97
+2026-06-12 19:23:38 | INFO | blessing | tax=14.85
+2026-06-12 19:23:38 | INFO | blessing | total=194.82
+2026-06-12 19:23:38 | INFO | blessing | running_total=194.82
+2026-06-12 19:23:38 | INFO | blessing | Wrote valid record to DuckDB:
+2026-06-12 19:23:38 | INFO | blessing |   order=e7324981-a9f0-419f-b708-d0a333451fff
+2026-06-12 19:23:38 | INFO | blessing | MESSAGE ACCEPTED
+2026-06-12 19:23:38 | INFO | blessing | order=e7324981-a9f0-419f-b708-d0a333451fff
+2026-06-12 19:23:38 | INFO | blessing | total=$194.82
+2026-06-12 19:23:38 | INFO | blessing | consumed=1
+2026-06-12 19:23:38 | INFO | blessing | RUNNING STATS
+2026-06-12 19:23:38 | INFO | blessing | total_sales=$194.82
+2026-06-12 19:23:38 | INFO | blessing | average=$194.82
+2026-06-12 19:23:38 | INFO | blessing | min=$194.82
+2026-06-12 19:23:38 | INFO | blessing | max=$194.82
+2026-06-12 19:23:38 | INFO | blessing | quantity=3
+2026-06-12 19:23:38 | INFO | blessing | {'currency_code': 'USD', 'customer_id': 'CUST-1106', 'customer_note': 'Gift for my team', 'datetime': '2026-05-04T08:23:00Z', 'device_type': 'mobile', 'discount_code': '', 'is_new_customer': 'false', 'is_online': 'true', 'order_id': 'd61943e0-f543-4b5f-9c9a-18605ea4cfe5', 'payment_method': 'paypal', 'product_id': 'PY-DATA-002', 'quantity': '1', 'referral_source': 'paid_search', 'region_id': 'US-TX', 'unit_price': '49.99', '_kafka_key': 'US-TX', '_kafka_partition': 0, '_kafka_offset': 1}
+2026-06-12 19:23:38 | INFO | blessing | subtotal=49.99
+2026-06-12 19:23:38 | INFO | blessing | tax=4.12
+2026-06-12 19:23:38 | INFO | blessing | total=54.11
+2026-06-12 19:23:38 | INFO | blessing | running_total=248.93
+2026-06-12 19:23:38 | INFO | blessing | Wrote valid record to DuckDB:
+2026-06-12 19:23:38 | INFO | blessing |   order=d61943e0-f543-4b5f-9c9a-18605ea4cfe5
+2026-06-12 19:23:38 | INFO | blessing | MESSAGE ACCEPTED
+2026-06-12 19:23:38 | INFO | blessing | order=d61943e0-f543-4b5f-9c9a-18605ea4cfe5
+2026-06-12 19:23:38 | INFO | blessing | total=$54.11
+2026-06-12 19:23:38 | INFO | blessing | consumed=2
+2026-06-12 19:23:38 | INFO | blessing | RUNNING STATS
+2026-06-12 19:23:38 | INFO | blessing | total_sales=$248.93
+2026-06-12 19:23:38 | INFO | blessing | average=$124.47
+2026-06-12 19:23:38 | INFO | blessing | min=$54.11
+2026-06-12 19:23:38 | INFO | blessing | max=$194.82
+2026-06-12 19:23:38 | INFO | blessing | quantity=1
+2026-06-12 19:23:38 | INFO | blessing | {'currency_code': 'CAD', 'customer_id': 'CUST-2133', 'customer_note': 'Learning at my own pace', 'datetime': '2026-05-04T08:28:00Z', 'device_type': 'desktop', 'discount_code': '', 'is_new_customer': 'false', 'is_online': 'true', 'order_id': '14da1915-8e74-47be-9e10-f7275d31af46', 'payment_method': 'paypal', 'product_id': 'PY-NLP-006', 'quantity': '1', 'referral_source': 'organic', 'region_id': 'CA-QC', 'unit_price': '54.99', '_kafka_key': 'CA-QC', '_kafka_partition': 0, '_kafka_offset': 2}
+2026-06-12 19:23:38 | INFO | blessing | subtotal=54.99
+2026-06-12 19:23:38 | INFO | blessing | tax=8.23
+2026-06-12 19:23:38 | INFO | blessing | total=63.22
+2026-06-12 19:23:38 | INFO | blessing | running_total=312.15
+2026-06-12 19:23:38 | INFO | blessing | Wrote valid record to DuckDB:
+2026-06-12 19:23:38 | INFO | blessing |   order=14da1915-8e74-47be-9e10-f7275d31af46
+2026-06-12 19:23:38 | INFO | blessing | MESSAGE ACCEPTED
+2026-06-12 19:23:38 | INFO | blessing | order=14da1915-8e74-47be-9e10-f7275d31af46
+2026-06-12 19:23:38 | INFO | blessing | total=$63.22
+2026-06-12 19:23:38 | INFO | blessing | consumed=3
+2026-06-12 19:23:38 | INFO | blessing | RUNNING STATS
+2026-06-12 19:23:38 | INFO | blessing | total_sales=$312.15
+2026-06-12 19:23:38 | INFO | blessing | average=$104.05
+2026-06-12 19:23:38 | INFO | blessing | min=$54.11
+2026-06-12 19:23:38 | INFO | blessing | max=$194.82
+2026-06-12 19:23:38 | INFO | blessing | quantity=1
+2026-06-12 19:23:38 | INFO | blessing | {'currency_code': 'USD', 'customer_id': 'CUST-5333', 'customer_note': 'Highly recommend', 'datetime': '2026-05-04T08:40:00Z', 'device_type': 'mobile', 'discount_code': '', 'is_new_customer': 'false', 'is_online': 'true', 'order_id': 'd77ed935-9b28-431d-bc25-0a3fd98f4154', 'payment_method': 'paypal', 'product_id': 'PY-STREAM-005', 'quantity': '1', 'referral_source': 'organic', 'region_id': 'US-CA', 'unit_price': '59.99', '_kafka_key': 'US-CA', '_kafka_partition': 0, '_kafka_offset': 3}
+2026-06-12 19:23:38 | INFO | blessing | subtotal=59.99
+2026-06-12 19:23:38 | INFO | blessing | tax=5.7
+2026-06-12 19:23:38 | INFO | blessing | total=65.69
+2026-06-12 19:23:38 | INFO | blessing | running_total=377.84
+2026-06-12 19:23:38 | INFO | blessing | Wrote valid record to DuckDB:
+2026-06-12 19:23:38 | INFO | blessing |   order=d77ed935-9b28-431d-bc25-0a3fd98f4154
+2026-06-12 19:23:38 | INFO | blessing | MESSAGE ACCEPTED
+2026-06-12 19:23:38 | INFO | blessing | order=d77ed935-9b28-431d-bc25-0a3fd98f4154
+2026-06-12 19:23:38 | INFO | blessing | total=$65.69
+2026-06-12 19:23:38 | INFO | blessing | consumed=4
+2026-06-12 19:23:38 | INFO | blessing | RUNNING STATS
+2026-06-12 19:23:38 | INFO | blessing | total_sales=$377.84
+2026-06-12 19:23:38 | INFO | blessing | average=$94.46
+2026-06-12 19:23:38 | INFO | blessing | min=$54.11
+2026-06-12 19:23:38 | INFO | blessing | max=$194.82
+2026-06-12 19:23:38 | INFO | blessing | quantity=1
+2026-06-12 19:23:38 | INFO | blessing | {'currency_code': 'USD', 'customer_id': 'CUST-8573', 'customer_note': 'Learning at my own pace', 'datetime': '2026-05-04T08:41:00Z', 'device_type': 'mobile', 'discount_code': '', 'is_new_customer': 'false', 'is_online': 'true', 'order_id': '24b91995-25f8-4ad7-8fa6-2e4c15750e5e', 'payment_method': 'apple_pay', 'product_id': 'PY-VIZ-003', 'quantity': '1', 'referral_source': 'paid_search', 'region_id': 'US-MO', 'unit_price': '39.99', '_kafka_key': 'US-MO', '_kafka_partition': 0, '_kafka_offset': 4}
+2026-06-12 19:23:38 | INFO | blessing | subtotal=39.99
+2026-06-12 19:23:38 | INFO | blessing | tax=3.2
+2026-06-12 19:23:38 | INFO | blessing | total=43.19
+2026-06-12 19:23:38 | INFO | blessing | running_total=421.03
+2026-06-12 19:23:38 | INFO | blessing | Wrote valid record to DuckDB:
+2026-06-12 19:23:38 | INFO | blessing |   order=24b91995-25f8-4ad7-8fa6-2e4c15750e5e
+2026-06-12 19:23:38 | INFO | blessing | MESSAGE ACCEPTED
+2026-06-12 19:23:38 | INFO | blessing | order=24b91995-25f8-4ad7-8fa6-2e4c15750e5e
+2026-06-12 19:23:38 | INFO | blessing | total=$43.19
+2026-06-12 19:23:38 | INFO | blessing | consumed=5
+2026-06-12 19:23:38 | INFO | blessing | RUNNING STATS
+2026-06-12 19:23:38 | INFO | blessing | total_sales=$421.03
+2026-06-12 19:23:38 | INFO | blessing | average=$84.21
+2026-06-12 19:23:38 | INFO | blessing | min=$43.19
+2026-06-12 19:23:38 | INFO | blessing | max=$194.82
+2026-06-12 19:23:38 | INFO | blessing | quantity=1
+2026-06-12 19:23:38 | INFO | blessing | {'currency_code': 'CAD', 'customer_id': 'CUST-8062', 'customer_note': '', 'datetime': '2026-05-04T08:54:00Z', 'device_type': 'tablet', 'discount_code': '', 'is_new_customer': 'false', 'is_online': 'true', 'order_id': '1ec0fc8b-998c-4f43-8a66-19e1fa7d5fa8', 'payment_method': 'paypal', 'product_id': 'PY-SQL-004', 'quantity': '1', 'referral_source': 'organic', 'region_id': 'CA-ON', 'unit_price': '44.99', '_kafka_key': 'CA-ON', '_kafka_partition': 0, '_kafka_offset': 5}
+2026-06-12 19:23:38 | INFO | blessing | subtotal=44.99
+2026-06-12 19:23:38 | INFO | blessing | tax=5.85
+2026-06-12 19:23:38 | INFO | blessing | total=50.84
+2026-06-12 19:23:38 | INFO | blessing | running_total=471.87
+2026-06-12 19:23:38 | INFO | blessing | Wrote valid record to DuckDB:
+2026-06-12 19:23:38 | INFO | blessing |   order=1ec0fc8b-998c-4f43-8a66-19e1fa7d5fa8
+2026-06-12 19:23:38 | INFO | blessing | MESSAGE ACCEPTED
+2026-06-12 19:23:38 | INFO | blessing | order=1ec0fc8b-998c-4f43-8a66-19e1fa7d5fa8
+2026-06-12 19:23:38 | INFO | blessing | total=$50.84
+2026-06-12 19:23:38 | INFO | blessing | consumed=6
+2026-06-12 19:23:38 | INFO | blessing | RUNNING STATS
+2026-06-12 19:23:38 | INFO | blessing | total_sales=$471.87
+2026-06-12 19:23:38 | INFO | blessing | average=$78.64
+2026-06-12 19:23:38 | INFO | blessing | min=$43.19
+2026-06-12 19:23:38 | INFO | blessing | max=$194.82
+2026-06-12 19:23:38 | INFO | blessing | quantity=1
+2026-06-12 19:23:38 | INFO | blessing | {'currency_code': 'USD', 'customer_id': 'CUST-4150', 'customer_note': 'Gift for my team', 'datetime': '2026-05-04T08:11:00Z', 'device_type': 'tablet', 'discount_code': '', 'is_new_customer': 'false', 'is_online': 'true', 'order_id': 'e7324981-a9f0-419f-b708-d0a333451fff', 'payment_method': 'paypal', 'product_id': 'PY-STREAM-005', 'quantity': '3', 'referral_source': 'paid_search', 'region_id': 'US-TX', 'unit_price': '59.99', '_kafka_key': 'US-TX', '_kafka_partition': 0, '_kafka_offset': 6}
+2026-06-12 19:23:38 | INFO | blessing | subtotal=179.97
+2026-06-12 19:23:38 | INFO | blessing | tax=14.85
+2026-06-12 19:23:38 | INFO | blessing | total=194.82
+2026-06-12 19:23:38 | INFO | blessing | running_total=666.69
+2026-06-12 19:23:38 | INFO | blessing | Wrote valid record to DuckDB:
+2026-06-12 19:23:38 | INFO | blessing |   order=e7324981-a9f0-419f-b708-d0a333451fff
+2026-06-12 19:23:38 | INFO | blessing | MESSAGE ACCEPTED
+2026-06-12 19:23:38 | INFO | blessing | order=e7324981-a9f0-419f-b708-d0a333451fff
+2026-06-12 19:23:38 | INFO | blessing | total=$194.82
+2026-06-12 19:23:38 | INFO | blessing | consumed=7
+2026-06-12 19:23:38 | INFO | blessing | RUNNING STATS
+2026-06-12 19:23:38 | INFO | blessing | total_sales=$666.69
+2026-06-12 19:23:38 | INFO | blessing | average=$95.24
+2026-06-12 19:23:38 | INFO | blessing | min=$43.19
+2026-06-12 19:23:38 | INFO | blessing | max=$194.82
+2026-06-12 19:23:38 | INFO | blessing | quantity=3
+2026-06-12 19:23:38 | INFO | blessing | {'currency_code': 'USD', 'customer_id': 'CUST-1106', 'customer_note': 'Gift for my team', 'datetime': '2026-05-04T08:23:00Z', 'device_type': 'mobile', 'discount_code': '', 'is_new_customer': 'false', 'is_online': 'true', 'order_id': 'd61943e0-f543-4b5f-9c9a-18605ea4cfe5', 'payment_method': 'paypal', 'product_id': 'PY-DATA-002', 'quantity': '1', 'referral_source': 'paid_search', 'region_id': 'US-TX', 'unit_price': '49.99', '_kafka_key': 'US-TX', '_kafka_partition': 0, '_kafka_offset': 7}
+2026-06-12 19:23:38 | INFO | blessing | subtotal=49.99
+2026-06-12 19:23:38 | INFO | blessing | tax=4.12
+2026-06-12 19:23:38 | INFO | blessing | total=54.11
+2026-06-12 19:23:38 | INFO | blessing | running_total=720.80
+2026-06-12 19:23:38 | INFO | blessing | Wrote valid record to DuckDB:
+2026-06-12 19:23:38 | INFO | blessing |   order=d61943e0-f543-4b5f-9c9a-18605ea4cfe5
+2026-06-12 19:23:38 | INFO | blessing | MESSAGE ACCEPTED
+2026-06-12 19:23:38 | INFO | blessing | order=d61943e0-f543-4b5f-9c9a-18605ea4cfe5
+2026-06-12 19:23:38 | INFO | blessing | total=$54.11
+2026-06-12 19:23:38 | INFO | blessing | consumed=8
+2026-06-12 19:23:38 | INFO | blessing | RUNNING STATS
+2026-06-12 19:23:38 | INFO | blessing | total_sales=$720.80
+2026-06-12 19:23:38 | INFO | blessing | average=$90.10
+2026-06-12 19:23:38 | INFO | blessing | min=$43.19
+2026-06-12 19:23:38 | INFO | blessing | max=$194.82
+2026-06-12 19:23:38 | INFO | blessing | quantity=1
+2026-06-12 19:23:38 | INFO | blessing | {'currency_code': 'CAD', 'customer_id': 'CUST-2133', 'customer_note': 'Learning at my own pace', 'datetime': '2026-05-04T08:28:00Z', 'device_type': 'desktop', 'discount_code': '', 'is_new_customer': 'false', 'is_online': 'true', 'order_id': '14da1915-8e74-47be-9e10-f7275d31af46', 'payment_method': 'paypal', 'product_id': 'PY-NLP-006', 'quantity': '1', 'referral_source': 'organic', 'region_id': 'CA-QC', 'unit_price': '54.99', '_kafka_key': 'CA-QC', '_kafka_partition': 0, '_kafka_offset': 8}
+2026-06-12 19:23:38 | INFO | blessing | subtotal=54.99
+2026-06-12 19:23:38 | INFO | blessing | tax=8.23
+2026-06-12 19:23:38 | INFO | blessing | total=63.22
+2026-06-12 19:23:38 | INFO | blessing | running_total=784.02
+2026-06-12 19:23:38 | INFO | blessing | Wrote valid record to DuckDB:
+2026-06-12 19:23:38 | INFO | blessing |   order=14da1915-8e74-47be-9e10-f7275d31af46
+2026-06-12 19:23:38 | INFO | blessing | MESSAGE ACCEPTED
+2026-06-12 19:23:38 | INFO | blessing | order=14da1915-8e74-47be-9e10-f7275d31af46
+2026-06-12 19:23:38 | INFO | blessing | total=$63.22
+2026-06-12 19:23:38 | INFO | blessing | consumed=9
+2026-06-12 19:23:38 | INFO | blessing | RUNNING STATS
+2026-06-12 19:23:38 | INFO | blessing | total_sales=$784.02
+2026-06-12 19:23:38 | INFO | blessing | average=$87.11
+2026-06-12 19:23:38 | INFO | blessing | min=$43.19
+2026-06-12 19:23:38 | INFO | blessing | max=$194.82
+2026-06-12 19:23:38 | INFO | blessing | quantity=1
+2026-06-12 19:23:38 | INFO | blessing | {'currency_code': 'USD', 'customer_id': 'CUST-5333', 'customer_note': 'Highly recommend', 'datetime': '2026-05-04T08:40:00Z', 'device_type': 'mobile', 'discount_code': '', 'is_new_customer': 'false', 'is_online': 'true', 'order_id': 'd77ed935-9b28-431d-bc25-0a3fd98f4154', 'payment_method': 'paypal', 'product_id': 'PY-STREAM-005', 'quantity': '1', 'referral_source': 'organic', 'region_id': 'US-CA', 'unit_price': '59.99', '_kafka_key': 'US-CA', '_kafka_partition': 0, '_kafka_offset': 9}
+2026-06-12 19:23:38 | INFO | blessing | subtotal=59.99
+2026-06-12 19:23:38 | INFO | blessing | tax=5.7
+2026-06-12 19:23:38 | INFO | blessing | total=65.69
+2026-06-12 19:23:38 | INFO | blessing | running_total=849.71
+2026-06-12 19:23:38 | INFO | blessing | Wrote valid record to DuckDB:
+2026-06-12 19:23:38 | INFO | blessing |   order=d77ed935-9b28-431d-bc25-0a3fd98f4154
+2026-06-12 19:23:38 | INFO | blessing | MESSAGE ACCEPTED
+2026-06-12 19:23:38 | INFO | blessing | order=d77ed935-9b28-431d-bc25-0a3fd98f4154
+2026-06-12 19:23:38 | INFO | blessing | total=$65.69
+2026-06-12 19:23:38 | INFO | blessing | consumed=10
+2026-06-12 19:23:38 | INFO | blessing | RUNNING STATS
+2026-06-12 19:23:38 | INFO | blessing | total_sales=$849.71
+2026-06-12 19:23:38 | INFO | blessing | average=$84.97
+2026-06-12 19:23:38 | INFO | blessing | min=$43.19
+2026-06-12 19:23:38 | INFO | blessing | max=$194.82
+2026-06-12 19:23:38 | INFO | blessing | quantity=1
+2026-06-12 19:23:38 | INFO | blessing | {'currency_code': 'USD', 'customer_id': 'CUST-8573', 'customer_note': 'Learning at my own pace', 'datetime': '2026-05-04T08:41:00Z', 'device_type': 'mobile', 'discount_code': '', 'is_new_customer': 'false', 'is_online': 'true', 'order_id': '24b91995-25f8-4ad7-8fa6-2e4c15750e5e', 'payment_method': 'apple_pay', 'product_id': 'PY-VIZ-003', 'quantity': '1', 'referral_source': 'paid_search', 'region_id': 'US-MO', 'unit_price': '39.99', '_kafka_key': 'US-MO', '_kafka_partition': 0, '_kafka_offset': 10}
+2026-06-12 19:23:38 | INFO | blessing | subtotal=39.99
+2026-06-12 19:23:38 | INFO | blessing | tax=3.2
+2026-06-12 19:23:38 | INFO | blessing | total=43.19
+2026-06-12 19:23:38 | INFO | blessing | running_total=892.90
+2026-06-12 19:23:38 | INFO | blessing | Wrote valid record to DuckDB:
+2026-06-12 19:23:38 | INFO | blessing |   order=24b91995-25f8-4ad7-8fa6-2e4c15750e5e
+2026-06-12 19:23:38 | INFO | blessing | MESSAGE ACCEPTED
+2026-06-12 19:23:38 | INFO | blessing | order=24b91995-25f8-4ad7-8fa6-2e4c15750e5e
+2026-06-12 19:23:38 | INFO | blessing | total=$43.19
+2026-06-12 19:23:38 | INFO | blessing | consumed=11
+2026-06-12 19:23:38 | INFO | blessing | RUNNING STATS
+2026-06-12 19:23:38 | INFO | blessing | total_sales=$892.90
+2026-06-12 19:23:38 | INFO | blessing | average=$81.17
+2026-06-12 19:23:38 | INFO | blessing | min=$43.19
+2026-06-12 19:23:38 | INFO | blessing | max=$194.82
+2026-06-12 19:23:38 | INFO | blessing | quantity=1
+2026-06-12 19:23:38 | INFO | blessing | {'currency_code': 'CAD', 'customer_id': 'CUST-8062', 'customer_note': '', 'datetime': '2026-05-04T08:54:00Z', 'device_type': 'tablet', 'discount_code': '', 'is_new_customer': 'false', 'is_online': 'true', 'order_id': '1ec0fc8b-998c-4f43-8a66-19e1fa7d5fa8', 'payment_method': 'paypal', 'product_id': 'PY-SQL-004', 'quantity': '1', 'referral_source': 'organic', 'region_id': 'CA-ON', 'unit_price': '44.99', '_kafka_key': 'CA-ON', '_kafka_partition': 0, '_kafka_offset': 11}
+2026-06-12 19:23:38 | INFO | blessing | subtotal=44.99
+2026-06-12 19:23:38 | INFO | blessing | tax=5.85
+2026-06-12 19:23:38 | INFO | blessing | total=50.84
+2026-06-12 19:23:38 | INFO | blessing | running_total=943.74
+2026-06-12 19:23:38 | INFO | blessing | Wrote valid record to DuckDB:
+2026-06-12 19:23:38 | INFO | blessing |   order=1ec0fc8b-998c-4f43-8a66-19e1fa7d5fa8
+2026-06-12 19:23:38 | INFO | blessing | MESSAGE ACCEPTED
+2026-06-12 19:23:38 | INFO | blessing | order=1ec0fc8b-998c-4f43-8a66-19e1fa7d5fa8
+2026-06-12 19:23:38 | INFO | blessing | total=$50.84
+2026-06-12 19:23:38 | INFO | blessing | consumed=12
+2026-06-12 19:23:38 | INFO | blessing | RUNNING STATS
+2026-06-12 19:23:38 | INFO | blessing | total_sales=$943.74
+2026-06-12 19:23:38 | INFO | blessing | average=$78.65
+2026-06-12 19:23:38 | INFO | blessing | min=$43.19
+2026-06-12 19:23:38 | INFO | blessing | max=$194.82
+2026-06-12 19:23:38 | INFO | blessing | quantity=1
+2026-06-12 19:23:49 | INFO | blessing | No message received within 10.0s timeout.
+2026-06-12 19:23:49 | INFO | blessing | Producer finished or paused. Stopping consumer.
+2026-06-12 19:23:49 | INFO | blessing | Kafka consumer closed.
+2026-06-12 19:23:49 | INFO | blessing | Saving artifacts...
+2026-06-12 19:23:49 | INFO | blessing | WROTE OUTPUT_CSV = data/output/consumed_sales.csv
+2026-06-12 19:23:49 | INFO | blessing | WROTE OUTPUT_DB = data/output/sales.duckdb
+2026-06-12 19:23:49 | INFO | blessing | ========================
+2026-06-12 19:23:49 | INFO | blessing | SECTION E. Exit
+2026-06-12 19:23:49 | INFO | blessing | ========================
+2026-06-12 19:23:49 | INFO | blessing | Summary:
+2026-06-12 19:23:49 | INFO | blessing | Consumed 12 message(s) from topic 'product-sales-case'.
+2026-06-12 19:23:49 | INFO | blessing | Skipped  0 message(s).
+2026-06-12 19:23:49 | INFO | blessing | OUTPUT_CSV = data/output/consumed_sales.csv
+2026-06-12 19:23:49 | INFO | blessing |   Total sales:  $943.74
+2026-06-12 19:23:49 | INFO | blessing |   Average sale: $78.65
+2026-06-12 19:23:49 | INFO | blessing |   Minimum sale: $43.19
+2026-06-12 19:23:49 | INFO | blessing |   Maximum sale: $194.82
+2026-06-12 19:23:49 | INFO | blessing | ========================
+2026-06-12 19:23:49 | INFO | blessing | Consumer executed successfully!
+2026-06-12 19:23:49 | INFO | blessing | ========================
+2026-06-12 19:35:38 | DEBUG | blessing | No variables found in .env
+2026-06-12 19:35:38 | INFO | blessing | === RUN START ===
+2026-06-12 19:35:38 | INFO | blessing | project=C05
+2026-06-12 19:35:38 | INFO | blessing | repo_dir=streaming-05-storage
+2026-06-12 19:35:38 | INFO | blessing | python=3.14.3
+2026-06-12 19:35:38 | INFO | blessing | os=Darwin 25.5.0
+2026-06-12 19:35:38 | INFO | blessing | shell=zsh
+2026-06-12 19:35:38 | INFO | blessing | cwd=.
+2026-06-12 19:35:38 | INFO | blessing | github_actions=False
+2026-06-12 19:35:38 | INFO | blessing | ========================
+2026-06-12 19:35:38 | INFO | blessing | START consumer main()
+2026-06-12 19:35:38 | INFO | blessing | ========================
+2026-06-12 19:35:38 | INFO | blessing | ROOT_DIR = .
+2026-06-12 19:35:38 | INFO | blessing | DATA_DIR = data
+2026-06-12 19:35:38 | INFO | blessing | OUTPUT_CSV = data/output/consumed_sales.csv
+2026-06-12 19:35:38 | INFO | blessing | OUTPUT_DB = data/output/sales.duckdb
+2026-06-12 19:35:38 | INFO | blessing | REGIONS_CSV = data/regions.csv
+2026-06-12 19:35:38 | INFO | blessing | PRODUCTS_CSV = data/products.csv
+2026-06-12 19:35:38 | INFO | blessing | CURRENCIES_CSV = data/currencies.csv
+2026-06-12 19:35:38 | INFO | blessing | DISCOUNT_CODES_CSV = data/discount_codes.csv
+2026-06-12 19:35:38 | INFO | blessing | ========================
+2026-06-12 19:35:38 | INFO | blessing | SECTION A. Acquire
+2026-06-12 19:35:38 | INFO | blessing | ========================
+2026-06-12 19:35:38 | INFO | blessing | Loading settings from .env...
+2026-06-12 19:35:38 | INFO | blessing | KAFKA_BOOTSTRAP_SERVERS  = localhost:9092
+2026-06-12 19:35:38 | INFO | blessing | KAFKA_TOPIC              = product-sales-case
+2026-06-12 19:35:38 | INFO | blessing | KAFKA_GROUP_ID           = streaming-consumer-group-A
+2026-06-12 19:35:38 | INFO | blessing | CONSUMER_TIMEOUT_SECONDS = 10.0
+2026-06-12 19:35:38 | INFO | blessing | CONSUMER_MAX_MESSAGES    = 1000
+2026-06-12 19:35:38 | INFO | blessing | Verifying Kafka connection...
+2026-06-12 19:35:38 | INFO | blessing | Kafka port is reachable.
+2026-06-12 19:35:38 | INFO | blessing | Verifying Kafka topic...
+2026-06-12 19:35:38 | INFO | blessing | Topic 'product-sales-case' exists.
+2026-06-12 19:35:38 | INFO | blessing | Found 12 message(s) available.
+2026-06-12 19:35:38 | INFO | blessing | Creating Kafka consumer...
+2026-06-12 19:35:38 | INFO | blessing | Subscribed to topic: 'product-sales-case' (reading from beginning)
+2026-06-12 19:35:38 | INFO | blessing | ========================
+2026-06-12 19:35:38 | INFO | blessing | SECTION C. Consume and Process Messages
+2026-06-12 19:35:38 | INFO | blessing | ========================
+2026-06-12 19:35:38 | INFO | blessing | Initializing output...
+2026-06-12 19:35:38 | INFO | blessing | Output CSV cleared: consumed_sales.csv
+2026-06-12 19:35:38 | INFO | blessing | Database initialized: sales.duckdb
+2026-06-12 19:35:38 | INFO | blessing | Loading enrichment reference data...
+2026-06-12 19:35:38 | INFO | blessing | Found 6 region tax rates.
+2026-06-12 19:35:38 | INFO | blessing | Consuming messages...
+2026-06-12 19:35:38 | INFO | blessing | Waiting for up to 1000 message(s).
+2026-06-12 19:35:38 | INFO | blessing | Press CTRL+C to stop early.
+
+2026-06-12 19:35:41 | INFO | blessing | {'currency_code': 'USD', 'customer_id': 'CUST-4150', 'customer_note': 'Gift for my team', 'datetime': '2026-05-04T08:11:00Z', 'device_type': 'tablet', 'discount_code': '', 'is_new_customer': 'false', 'is_online': 'true', 'order_id': 'e7324981-a9f0-419f-b708-d0a333451fff', 'payment_method': 'paypal', 'product_id': 'PY-STREAM-005', 'quantity': '3', 'referral_source': 'paid_search', 'region_id': 'US-TX', 'unit_price': '59.99', '_kafka_key': 'US-TX', '_kafka_partition': 0, '_kafka_offset': 0}
+2026-06-12 19:35:41 | INFO | blessing | subtotal=179.97
+2026-06-12 19:35:41 | INFO | blessing | tax=14.85
+2026-06-12 19:35:41 | INFO | blessing | total=176.82
+2026-06-12 19:35:41 | INFO | blessing | running_total=176.82
+2026-06-12 19:35:41 | INFO | blessing | Wrote valid record to DuckDB:
+2026-06-12 19:35:41 | INFO | blessing |   order=e7324981-a9f0-419f-b708-d0a333451fff
+2026-06-12 19:35:41 | INFO | blessing | MESSAGE ACCEPTED
+2026-06-12 19:35:41 | INFO | blessing | order=e7324981-a9f0-419f-b708-d0a333451fff
+2026-06-12 19:35:41 | INFO | blessing | total=$176.82
+2026-06-12 19:35:41 | INFO | blessing | consumed=1
+2026-06-12 19:35:41 | INFO | blessing | RUNNING STATS
+2026-06-12 19:35:41 | INFO | blessing | total_sales=$176.82
+2026-06-12 19:35:41 | INFO | blessing | average=$176.82
+2026-06-12 19:35:41 | INFO | blessing | min=$176.82
+2026-06-12 19:35:41 | INFO | blessing | max=$176.82
+2026-06-12 19:35:41 | INFO | blessing | quantity=3
+2026-06-12 19:35:41 | INFO | blessing | {'currency_code': 'USD', 'customer_id': 'CUST-1106', 'customer_note': 'Gift for my team', 'datetime': '2026-05-04T08:23:00Z', 'device_type': 'mobile', 'discount_code': '', 'is_new_customer': 'false', 'is_online': 'true', 'order_id': 'd61943e0-f543-4b5f-9c9a-18605ea4cfe5', 'payment_method': 'paypal', 'product_id': 'PY-DATA-002', 'quantity': '1', 'referral_source': 'paid_search', 'region_id': 'US-TX', 'unit_price': '49.99', '_kafka_key': 'US-TX', '_kafka_partition': 0, '_kafka_offset': 1}
+2026-06-12 19:35:41 | INFO | blessing | subtotal=49.99
+2026-06-12 19:35:41 | INFO | blessing | tax=4.12
+2026-06-12 19:35:41 | INFO | blessing | total=54.11
+2026-06-12 19:35:41 | INFO | blessing | running_total=230.93
+2026-06-12 19:35:41 | INFO | blessing | Wrote valid record to DuckDB:
+2026-06-12 19:35:41 | INFO | blessing |   order=d61943e0-f543-4b5f-9c9a-18605ea4cfe5
+2026-06-12 19:35:41 | INFO | blessing | MESSAGE ACCEPTED
+2026-06-12 19:35:41 | INFO | blessing | order=d61943e0-f543-4b5f-9c9a-18605ea4cfe5
+2026-06-12 19:35:41 | INFO | blessing | total=$54.11
+2026-06-12 19:35:41 | INFO | blessing | consumed=2
+2026-06-12 19:35:41 | INFO | blessing | RUNNING STATS
+2026-06-12 19:35:41 | INFO | blessing | total_sales=$230.93
+2026-06-12 19:35:41 | INFO | blessing | average=$115.47
+2026-06-12 19:35:41 | INFO | blessing | min=$54.11
+2026-06-12 19:35:41 | INFO | blessing | max=$176.82
+2026-06-12 19:35:41 | INFO | blessing | quantity=1
+2026-06-12 19:35:41 | INFO | blessing | {'currency_code': 'CAD', 'customer_id': 'CUST-2133', 'customer_note': 'Learning at my own pace', 'datetime': '2026-05-04T08:28:00Z', 'device_type': 'desktop', 'discount_code': '', 'is_new_customer': 'false', 'is_online': 'true', 'order_id': '14da1915-8e74-47be-9e10-f7275d31af46', 'payment_method': 'paypal', 'product_id': 'PY-NLP-006', 'quantity': '1', 'referral_source': 'organic', 'region_id': 'CA-QC', 'unit_price': '54.99', '_kafka_key': 'CA-QC', '_kafka_partition': 0, '_kafka_offset': 2}
+2026-06-12 19:35:41 | INFO | blessing | subtotal=54.99
+2026-06-12 19:35:41 | INFO | blessing | tax=8.23
+2026-06-12 19:35:41 | INFO | blessing | total=63.22
+2026-06-12 19:35:41 | INFO | blessing | running_total=294.15
+2026-06-12 19:35:41 | INFO | blessing | Wrote valid record to DuckDB:
+2026-06-12 19:35:41 | INFO | blessing |   order=14da1915-8e74-47be-9e10-f7275d31af46
+2026-06-12 19:35:41 | INFO | blessing | MESSAGE ACCEPTED
+2026-06-12 19:35:41 | INFO | blessing | order=14da1915-8e74-47be-9e10-f7275d31af46
+2026-06-12 19:35:41 | INFO | blessing | total=$63.22
+2026-06-12 19:35:41 | INFO | blessing | consumed=3
+2026-06-12 19:35:41 | INFO | blessing | RUNNING STATS
+2026-06-12 19:35:41 | INFO | blessing | total_sales=$294.15
+2026-06-12 19:35:41 | INFO | blessing | average=$98.05
+2026-06-12 19:35:41 | INFO | blessing | min=$54.11
+2026-06-12 19:35:41 | INFO | blessing | max=$176.82
+2026-06-12 19:35:41 | INFO | blessing | quantity=1
+2026-06-12 19:35:41 | INFO | blessing | {'currency_code': 'USD', 'customer_id': 'CUST-5333', 'customer_note': 'Highly recommend', 'datetime': '2026-05-04T08:40:00Z', 'device_type': 'mobile', 'discount_code': '', 'is_new_customer': 'false', 'is_online': 'true', 'order_id': 'd77ed935-9b28-431d-bc25-0a3fd98f4154', 'payment_method': 'paypal', 'product_id': 'PY-STREAM-005', 'quantity': '1', 'referral_source': 'organic', 'region_id': 'US-CA', 'unit_price': '59.99', '_kafka_key': 'US-CA', '_kafka_partition': 0, '_kafka_offset': 3}
+2026-06-12 19:35:41 | INFO | blessing | subtotal=59.99
+2026-06-12 19:35:41 | INFO | blessing | tax=5.7
+2026-06-12 19:35:41 | INFO | blessing | total=65.69
+2026-06-12 19:35:41 | INFO | blessing | running_total=359.84
+2026-06-12 19:35:41 | INFO | blessing | Wrote valid record to DuckDB:
+2026-06-12 19:35:41 | INFO | blessing |   order=d77ed935-9b28-431d-bc25-0a3fd98f4154
+2026-06-12 19:35:41 | INFO | blessing | MESSAGE ACCEPTED
+2026-06-12 19:35:41 | INFO | blessing | order=d77ed935-9b28-431d-bc25-0a3fd98f4154
+2026-06-12 19:35:41 | INFO | blessing | total=$65.69
+2026-06-12 19:35:41 | INFO | blessing | consumed=4
+2026-06-12 19:35:41 | INFO | blessing | RUNNING STATS
+2026-06-12 19:35:41 | INFO | blessing | total_sales=$359.84
+2026-06-12 19:35:41 | INFO | blessing | average=$89.96
+2026-06-12 19:35:41 | INFO | blessing | min=$54.11
+2026-06-12 19:35:41 | INFO | blessing | max=$176.82
+2026-06-12 19:35:41 | INFO | blessing | quantity=1
+2026-06-12 19:35:41 | INFO | blessing | {'currency_code': 'USD', 'customer_id': 'CUST-8573', 'customer_note': 'Learning at my own pace', 'datetime': '2026-05-04T08:41:00Z', 'device_type': 'mobile', 'discount_code': '', 'is_new_customer': 'false', 'is_online': 'true', 'order_id': '24b91995-25f8-4ad7-8fa6-2e4c15750e5e', 'payment_method': 'apple_pay', 'product_id': 'PY-VIZ-003', 'quantity': '1', 'referral_source': 'paid_search', 'region_id': 'US-MO', 'unit_price': '39.99', '_kafka_key': 'US-MO', '_kafka_partition': 0, '_kafka_offset': 4}
+2026-06-12 19:35:41 | INFO | blessing | subtotal=39.99
+2026-06-12 19:35:41 | INFO | blessing | tax=3.2
+2026-06-12 19:35:41 | INFO | blessing | total=43.19
+2026-06-12 19:35:41 | INFO | blessing | running_total=403.03
+2026-06-12 19:35:41 | INFO | blessing | Wrote valid record to DuckDB:
+2026-06-12 19:35:41 | INFO | blessing |   order=24b91995-25f8-4ad7-8fa6-2e4c15750e5e
+2026-06-12 19:35:41 | INFO | blessing | MESSAGE ACCEPTED
+2026-06-12 19:35:41 | INFO | blessing | order=24b91995-25f8-4ad7-8fa6-2e4c15750e5e
+2026-06-12 19:35:41 | INFO | blessing | total=$43.19
+2026-06-12 19:35:41 | INFO | blessing | consumed=5
+2026-06-12 19:35:41 | INFO | blessing | RUNNING STATS
+2026-06-12 19:35:41 | INFO | blessing | total_sales=$403.03
+2026-06-12 19:35:41 | INFO | blessing | average=$80.61
+2026-06-12 19:35:41 | INFO | blessing | min=$43.19
+2026-06-12 19:35:41 | INFO | blessing | max=$176.82
+2026-06-12 19:35:41 | INFO | blessing | quantity=1
+2026-06-12 19:35:41 | INFO | blessing | {'currency_code': 'CAD', 'customer_id': 'CUST-8062', 'customer_note': '', 'datetime': '2026-05-04T08:54:00Z', 'device_type': 'tablet', 'discount_code': '', 'is_new_customer': 'false', 'is_online': 'true', 'order_id': '1ec0fc8b-998c-4f43-8a66-19e1fa7d5fa8', 'payment_method': 'paypal', 'product_id': 'PY-SQL-004', 'quantity': '1', 'referral_source': 'organic', 'region_id': 'CA-ON', 'unit_price': '44.99', '_kafka_key': 'CA-ON', '_kafka_partition': 0, '_kafka_offset': 5}
+2026-06-12 19:35:41 | INFO | blessing | subtotal=44.99
+2026-06-12 19:35:41 | INFO | blessing | tax=5.85
+2026-06-12 19:35:41 | INFO | blessing | total=50.84
+2026-06-12 19:35:41 | INFO | blessing | running_total=453.87
+2026-06-12 19:35:41 | INFO | blessing | Wrote valid record to DuckDB:
+2026-06-12 19:35:41 | INFO | blessing |   order=1ec0fc8b-998c-4f43-8a66-19e1fa7d5fa8
+2026-06-12 19:35:41 | INFO | blessing | MESSAGE ACCEPTED
+2026-06-12 19:35:41 | INFO | blessing | order=1ec0fc8b-998c-4f43-8a66-19e1fa7d5fa8
+2026-06-12 19:35:41 | INFO | blessing | total=$50.84
+2026-06-12 19:35:41 | INFO | blessing | consumed=6
+2026-06-12 19:35:41 | INFO | blessing | RUNNING STATS
+2026-06-12 19:35:41 | INFO | blessing | total_sales=$453.87
+2026-06-12 19:35:41 | INFO | blessing | average=$75.64
+2026-06-12 19:35:41 | INFO | blessing | min=$43.19
+2026-06-12 19:35:41 | INFO | blessing | max=$176.82
+2026-06-12 19:35:41 | INFO | blessing | quantity=1
+2026-06-12 19:35:41 | INFO | blessing | {'currency_code': 'USD', 'customer_id': 'CUST-4150', 'customer_note': 'Gift for my team', 'datetime': '2026-05-04T08:11:00Z', 'device_type': 'tablet', 'discount_code': '', 'is_new_customer': 'false', 'is_online': 'true', 'order_id': 'e7324981-a9f0-419f-b708-d0a333451fff', 'payment_method': 'paypal', 'product_id': 'PY-STREAM-005', 'quantity': '3', 'referral_source': 'paid_search', 'region_id': 'US-TX', 'unit_price': '59.99', '_kafka_key': 'US-TX', '_kafka_partition': 0, '_kafka_offset': 6}
+2026-06-12 19:35:41 | INFO | blessing | subtotal=179.97
+2026-06-12 19:35:41 | INFO | blessing | tax=14.85
+2026-06-12 19:35:41 | INFO | blessing | total=176.82
+2026-06-12 19:35:41 | INFO | blessing | running_total=630.69
+2026-06-12 19:35:41 | INFO | blessing | Wrote valid record to DuckDB:
+2026-06-12 19:35:41 | INFO | blessing |   order=e7324981-a9f0-419f-b708-d0a333451fff
+2026-06-12 19:35:41 | INFO | blessing | MESSAGE ACCEPTED
+2026-06-12 19:35:41 | INFO | blessing | order=e7324981-a9f0-419f-b708-d0a333451fff
+2026-06-12 19:35:41 | INFO | blessing | total=$176.82
+2026-06-12 19:35:41 | INFO | blessing | consumed=7
+2026-06-12 19:35:41 | INFO | blessing | RUNNING STATS
+2026-06-12 19:35:41 | INFO | blessing | total_sales=$630.69
+2026-06-12 19:35:41 | INFO | blessing | average=$90.10
+2026-06-12 19:35:41 | INFO | blessing | min=$43.19
+2026-06-12 19:35:41 | INFO | blessing | max=$176.82
+2026-06-12 19:35:41 | INFO | blessing | quantity=3
+2026-06-12 19:35:41 | INFO | blessing | {'currency_code': 'USD', 'customer_id': 'CUST-1106', 'customer_note': 'Gift for my team', 'datetime': '2026-05-04T08:23:00Z', 'device_type': 'mobile', 'discount_code': '', 'is_new_customer': 'false', 'is_online': 'true', 'order_id': 'd61943e0-f543-4b5f-9c9a-18605ea4cfe5', 'payment_method': 'paypal', 'product_id': 'PY-DATA-002', 'quantity': '1', 'referral_source': 'paid_search', 'region_id': 'US-TX', 'unit_price': '49.99', '_kafka_key': 'US-TX', '_kafka_partition': 0, '_kafka_offset': 7}
+2026-06-12 19:35:41 | INFO | blessing | subtotal=49.99
+2026-06-12 19:35:41 | INFO | blessing | tax=4.12
+2026-06-12 19:35:41 | INFO | blessing | total=54.11
+2026-06-12 19:35:41 | INFO | blessing | running_total=684.80
+2026-06-12 19:35:41 | INFO | blessing | Wrote valid record to DuckDB:
+2026-06-12 19:35:41 | INFO | blessing |   order=d61943e0-f543-4b5f-9c9a-18605ea4cfe5
+2026-06-12 19:35:41 | INFO | blessing | MESSAGE ACCEPTED
+2026-06-12 19:35:41 | INFO | blessing | order=d61943e0-f543-4b5f-9c9a-18605ea4cfe5
+2026-06-12 19:35:41 | INFO | blessing | total=$54.11
+2026-06-12 19:35:41 | INFO | blessing | consumed=8
+2026-06-12 19:35:41 | INFO | blessing | RUNNING STATS
+2026-06-12 19:35:41 | INFO | blessing | total_sales=$684.80
+2026-06-12 19:35:41 | INFO | blessing | average=$85.60
+2026-06-12 19:35:41 | INFO | blessing | min=$43.19
+2026-06-12 19:35:41 | INFO | blessing | max=$176.82
+2026-06-12 19:35:41 | INFO | blessing | quantity=1
+2026-06-12 19:35:41 | INFO | blessing | {'currency_code': 'CAD', 'customer_id': 'CUST-2133', 'customer_note': 'Learning at my own pace', 'datetime': '2026-05-04T08:28:00Z', 'device_type': 'desktop', 'discount_code': '', 'is_new_customer': 'false', 'is_online': 'true', 'order_id': '14da1915-8e74-47be-9e10-f7275d31af46', 'payment_method': 'paypal', 'product_id': 'PY-NLP-006', 'quantity': '1', 'referral_source': 'organic', 'region_id': 'CA-QC', 'unit_price': '54.99', '_kafka_key': 'CA-QC', '_kafka_partition': 0, '_kafka_offset': 8}
+2026-06-12 19:35:41 | INFO | blessing | subtotal=54.99
+2026-06-12 19:35:41 | INFO | blessing | tax=8.23
+2026-06-12 19:35:41 | INFO | blessing | total=63.22
+2026-06-12 19:35:41 | INFO | blessing | running_total=748.02
+2026-06-12 19:35:41 | INFO | blessing | Wrote valid record to DuckDB:
+2026-06-12 19:35:41 | INFO | blessing |   order=14da1915-8e74-47be-9e10-f7275d31af46
+2026-06-12 19:35:41 | INFO | blessing | MESSAGE ACCEPTED
+2026-06-12 19:35:41 | INFO | blessing | order=14da1915-8e74-47be-9e10-f7275d31af46
+2026-06-12 19:35:41 | INFO | blessing | total=$63.22
+2026-06-12 19:35:41 | INFO | blessing | consumed=9
+2026-06-12 19:35:41 | INFO | blessing | RUNNING STATS
+2026-06-12 19:35:41 | INFO | blessing | total_sales=$748.02
+2026-06-12 19:35:41 | INFO | blessing | average=$83.11
+2026-06-12 19:35:41 | INFO | blessing | min=$43.19
+2026-06-12 19:35:41 | INFO | blessing | max=$176.82
+2026-06-12 19:35:41 | INFO | blessing | quantity=1
+2026-06-12 19:35:41 | INFO | blessing | {'currency_code': 'USD', 'customer_id': 'CUST-5333', 'customer_note': 'Highly recommend', 'datetime': '2026-05-04T08:40:00Z', 'device_type': 'mobile', 'discount_code': '', 'is_new_customer': 'false', 'is_online': 'true', 'order_id': 'd77ed935-9b28-431d-bc25-0a3fd98f4154', 'payment_method': 'paypal', 'product_id': 'PY-STREAM-005', 'quantity': '1', 'referral_source': 'organic', 'region_id': 'US-CA', 'unit_price': '59.99', '_kafka_key': 'US-CA', '_kafka_partition': 0, '_kafka_offset': 9}
+2026-06-12 19:35:41 | INFO | blessing | subtotal=59.99
+2026-06-12 19:35:41 | INFO | blessing | tax=5.7
+2026-06-12 19:35:41 | INFO | blessing | total=65.69
+2026-06-12 19:35:41 | INFO | blessing | running_total=813.71
+2026-06-12 19:35:41 | INFO | blessing | Wrote valid record to DuckDB:
+2026-06-12 19:35:41 | INFO | blessing |   order=d77ed935-9b28-431d-bc25-0a3fd98f4154
+2026-06-12 19:35:41 | INFO | blessing | MESSAGE ACCEPTED
+2026-06-12 19:35:41 | INFO | blessing | order=d77ed935-9b28-431d-bc25-0a3fd98f4154
+2026-06-12 19:35:41 | INFO | blessing | total=$65.69
+2026-06-12 19:35:41 | INFO | blessing | consumed=10
+2026-06-12 19:35:41 | INFO | blessing | RUNNING STATS
+2026-06-12 19:35:41 | INFO | blessing | total_sales=$813.71
+2026-06-12 19:35:41 | INFO | blessing | average=$81.37
+2026-06-12 19:35:41 | INFO | blessing | min=$43.19
+2026-06-12 19:35:41 | INFO | blessing | max=$176.82
+2026-06-12 19:35:41 | INFO | blessing | quantity=1
+2026-06-12 19:35:41 | INFO | blessing | {'currency_code': 'USD', 'customer_id': 'CUST-8573', 'customer_note': 'Learning at my own pace', 'datetime': '2026-05-04T08:41:00Z', 'device_type': 'mobile', 'discount_code': '', 'is_new_customer': 'false', 'is_online': 'true', 'order_id': '24b91995-25f8-4ad7-8fa6-2e4c15750e5e', 'payment_method': 'apple_pay', 'product_id': 'PY-VIZ-003', 'quantity': '1', 'referral_source': 'paid_search', 'region_id': 'US-MO', 'unit_price': '39.99', '_kafka_key': 'US-MO', '_kafka_partition': 0, '_kafka_offset': 10}
+2026-06-12 19:35:41 | INFO | blessing | subtotal=39.99
+2026-06-12 19:35:41 | INFO | blessing | tax=3.2
+2026-06-12 19:35:41 | INFO | blessing | total=43.19
+2026-06-12 19:35:41 | INFO | blessing | running_total=856.90
+2026-06-12 19:35:41 | INFO | blessing | Wrote valid record to DuckDB:
+2026-06-12 19:35:41 | INFO | blessing |   order=24b91995-25f8-4ad7-8fa6-2e4c15750e5e
+2026-06-12 19:35:41 | INFO | blessing | MESSAGE ACCEPTED
+2026-06-12 19:35:41 | INFO | blessing | order=24b91995-25f8-4ad7-8fa6-2e4c15750e5e
+2026-06-12 19:35:41 | INFO | blessing | total=$43.19
+2026-06-12 19:35:41 | INFO | blessing | consumed=11
+2026-06-12 19:35:41 | INFO | blessing | RUNNING STATS
+2026-06-12 19:35:41 | INFO | blessing | total_sales=$856.90
+2026-06-12 19:35:41 | INFO | blessing | average=$77.90
+2026-06-12 19:35:41 | INFO | blessing | min=$43.19
+2026-06-12 19:35:41 | INFO | blessing | max=$176.82
+2026-06-12 19:35:41 | INFO | blessing | quantity=1
+2026-06-12 19:35:41 | INFO | blessing | {'currency_code': 'CAD', 'customer_id': 'CUST-8062', 'customer_note': '', 'datetime': '2026-05-04T08:54:00Z', 'device_type': 'tablet', 'discount_code': '', 'is_new_customer': 'false', 'is_online': 'true', 'order_id': '1ec0fc8b-998c-4f43-8a66-19e1fa7d5fa8', 'payment_method': 'paypal', 'product_id': 'PY-SQL-004', 'quantity': '1', 'referral_source': 'organic', 'region_id': 'CA-ON', 'unit_price': '44.99', '_kafka_key': 'CA-ON', '_kafka_partition': 0, '_kafka_offset': 11}
+2026-06-12 19:35:41 | INFO | blessing | subtotal=44.99
+2026-06-12 19:35:41 | INFO | blessing | tax=5.85
+2026-06-12 19:35:41 | INFO | blessing | total=50.84
+2026-06-12 19:35:41 | INFO | blessing | running_total=907.74
+2026-06-12 19:35:41 | INFO | blessing | Wrote valid record to DuckDB:
+2026-06-12 19:35:41 | INFO | blessing |   order=1ec0fc8b-998c-4f43-8a66-19e1fa7d5fa8
+2026-06-12 19:35:41 | INFO | blessing | MESSAGE ACCEPTED
+2026-06-12 19:35:41 | INFO | blessing | order=1ec0fc8b-998c-4f43-8a66-19e1fa7d5fa8
+2026-06-12 19:35:41 | INFO | blessing | total=$50.84
+2026-06-12 19:35:41 | INFO | blessing | consumed=12
+2026-06-12 19:35:41 | INFO | blessing | RUNNING STATS
+2026-06-12 19:35:41 | INFO | blessing | total_sales=$907.74
+2026-06-12 19:35:41 | INFO | blessing | average=$75.65
+2026-06-12 19:35:41 | INFO | blessing | min=$43.19
+2026-06-12 19:35:41 | INFO | blessing | max=$176.82
+2026-06-12 19:35:41 | INFO | blessing | quantity=1
+2026-06-12 19:35:51 | INFO | blessing | No message received within 10.0s timeout.
+2026-06-12 19:35:51 | INFO | blessing | Producer finished or paused. Stopping consumer.
+2026-06-12 19:35:51 | INFO | blessing | Kafka consumer closed.
+2026-06-12 19:35:51 | INFO | blessing | Saving artifacts...
+2026-06-12 19:35:51 | INFO | blessing | WROTE OUTPUT_CSV = data/output/consumed_sales.csv
+2026-06-12 19:35:51 | INFO | blessing | WROTE OUTPUT_DB = data/output/sales.duckdb
+2026-06-12 19:35:51 | INFO | blessing | ========================
+2026-06-12 19:35:51 | INFO | blessing | SECTION E. Exit
+2026-06-12 19:35:51 | INFO | blessing | ========================
+2026-06-12 19:35:51 | INFO | blessing | Summary:
+2026-06-12 19:35:51 | INFO | blessing | Consumed 12 message(s) from topic 'product-sales-case'.
+2026-06-12 19:35:51 | INFO | blessing | Skipped  0 message(s).
+2026-06-12 19:35:51 | INFO | blessing | OUTPUT_CSV = data/output/consumed_sales.csv
+2026-06-12 19:35:51 | INFO | blessing |   Total sales:  $907.74
+2026-06-12 19:35:51 | INFO | blessing |   Average sale: $75.65
+2026-06-12 19:35:51 | INFO | blessing |   Minimum sale: $43.19
+2026-06-12 19:35:51 | INFO | blessing |   Maximum sale: $176.82
+2026-06-12 19:35:51 | INFO | blessing | ========================
+2026-06-12 19:35:51 | INFO | blessing | Consumer executed successfully!
+2026-06-12 19:35:51 | INFO | blessing | ========================
+2026-06-12 19:56:41 | DEBUG | C05 | No variables found in .env
+2026-06-12 19:56:41 | DEBUG | P03 | No variables found in .env
